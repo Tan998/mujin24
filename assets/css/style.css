@@ -1796,10 +1796,10 @@ p {
 
 .screen-content {
     position: absolute;
-    top: 7.5%;
-    left: 9%;
-    width: 79%;
-    height: 82.5%;
+    top: 4.2%;
+    left: 3%;
+    width: 88%;
+    height: 65.5%;
     overflow: hidden;
     z-index: 1;
     background: white;
@@ -1923,4 +1923,31 @@ p {
   z-index: 3;
   pointer-events: none;
   user-select: none;
+}
+.card-number::after{
+  content:attr(data-spotlight);
+  color:transparent;
+  position:absolute;
+  top:0;
+  left:0;
+  animation:5s spotlight infinite;
+  background: radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  background-position:center center;
+  -webkit-background-clip:text;
+  background-clip:text; 
+}
+
+@keyframes spotlight{
+  0%{
+    -webkit-clip-path:ellipse(100px 100px at 0% 50%);
+  clip-path:ellipse(100px 100px at 0% 50%);
+  }
+  50%{
+    -webkit-clip-path:ellipse(100px 100px at 100% 50%);
+  clip-path:ellipse(100px 100px at 100% 50%);
+  }
+  100%{
+    -webkit-clip-path:ellipse(100px 100px at 0% 50%);
+  clip-path:ellipse(100px 100px at 0% 50%);
+  }
 }
