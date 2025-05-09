@@ -193,10 +193,23 @@ $(function () {
         }]
     });
 
+    //=== top baner scoll content
+    document.addEventListener("scroll", function () {
+        const scrollable = document.querySelector(".scrollable-content");
+        if (!scrollable) return;
 
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = window.scrollY / docHeight;
 
+        const scrollableHeight = scrollable.scrollHeight - scrollable.clientHeight;
 
+        const speedMultiplier = 60;
+        let scrollTarget = scrollPercent * scrollableHeight * speedMultiplier;
 
+        scrollTarget = Math.min(scrollableHeight, scrollTarget);
+
+        scrollable.scrollTop = scrollTarget;
+    });
 
 
 
